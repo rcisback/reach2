@@ -1,0 +1,14 @@
+local plr = game.Players.LocalPlayer
+
+function supaSiza(v)
+   if v:IsA("Tool") then
+       v.Handle.Transparency = 0.85
+       v.Handle.Size = Vector3.new(100, 100, 100)
+   end
+end
+
+plr.Character.ChildAdded:Connect(supaSiza)
+
+plr.CharacterAdded:Connect(function(char)
+   char.ChildAdded:Connect(supaSiza)
+end)
